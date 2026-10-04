@@ -68,7 +68,7 @@ const overviewCards = [
 
 function TrendChart({ color, fill, path }: { color: string; fill: string; path: string }) {
   return (
-    <svg aria-hidden="true" className="h-[52px] w-[84px] shrink-0 sm:h-[58px] sm:w-[94px]" viewBox="0 0 112 48" fill="none" preserveAspectRatio="none">
+    <svg aria-hidden="true" className="h-[58px] w-[100px] shrink-0" viewBox="0 0 112 48" fill="none" preserveAspectRatio="none">
       <path d={`${path} V48 H1 Z`} fill={fill} />
       <path d={path} stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" />
     </svg>
@@ -148,25 +148,25 @@ export function DashboardOverview() {
   }
 
   return (
-    <div className="mx-auto grid w-full grid-cols-1 gap-3 px-4 py-3 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+    <div className="mx-auto grid w-full grid-cols-1 gap-3 px-4 py-3 sm:grid-cols-2 sm:px-5 lg:grid-cols-4">
       {overviewCards.map(({ label, key, fallbackKey, icon: Icon, valuePrefix = "", iconClass, currency, accent, chartFill, trend, trendLabel, trendClass }) => {
         const value = data?.data?.[key] ?? (fallbackKey ? data?.data?.[fallbackKey] : undefined) ?? 0;
         return (
         <div
           key={key}
-          className="group relative min-h-[96px] overflow-hidden rounded-md border border-[#D9E1EB] bg-white px-3 py-2 shadow-[0_2px_5px_rgba(24,39,75,0.04)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(24,39,75,0.09)]"
+          className="group relative min-h-[129px] overflow-hidden rounded-md border border-[#D9E1EB] bg-white px-3 py-3 shadow-[0_2px_5px_rgba(24,39,75,0.04)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(24,39,75,0.09)]"
         >
-          <span className={`flex h-7 w-7 items-center justify-center rounded-[5px] border ${iconClass}`}>
-            <Icon className="h-4 w-4" strokeWidth={1.7} />
+          <span className={`flex h-8 w-8 items-center justify-center rounded-[5px] border ${iconClass}`}>
+            <Icon className="h-[18px] w-[18px]" strokeWidth={1.5} />
           </span>
-          <div className="mt-1 min-w-0 pr-[80px]">
-            <p className="truncate text-[18px] font-bold leading-none tracking-[-0.02em] text-[#131928] sm:text-[20px]">
+          <div className="mt-3 min-w-0 pr-[100px]">
+            <p className="truncate text-[21px] font-bold leading-none tracking-[-0.02em] text-[#131928]">
               {valuePrefix}{currency ? formatNumber(value) : formatNumber(value)}
             </p>
-            <p className="mt-1 truncate text-[10px] font-medium leading-none text-[#596579] sm:text-[11px]">{label}</p>
-            <span className={`mt-1 inline-flex rounded px-1 py-0.5 text-[8px] font-medium leading-none sm:text-[9px] ${trendClass}`}>{trendLabel}</span>
+            <p className="mt-1 truncate text-[11px] font-medium leading-none text-[#596579]">{label}</p>
+            <span className={`mt-1 inline-flex rounded px-1 py-0.5 text-[9px] font-medium leading-none ${trendClass}`}>{trendLabel}</span>
           </div>
-          <div className="absolute bottom-2 right-2.5"><TrendChart color={accent} fill={chartFill} path={trend} /></div>
+          <div className="absolute bottom-3 right-3"><TrendChart color={accent} fill={chartFill} path={trend} /></div>
         </div>
         );
       })}

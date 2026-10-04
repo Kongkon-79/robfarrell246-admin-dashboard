@@ -20,15 +20,15 @@ const RevenueAndProfit = () => {
 
   return (
     <section className="overflow-hidden rounded-md border border-[#C9D7E8] bg-white shadow-[0_2px_6px_rgba(24,39,75,0.03)]">
-      <header className="flex h-[70px] items-center justify-between border-b border-[#D8DEE8] px-5 sm:px-[22px]">
-        <h2 className="text-[21px] font-semibold tracking-[-0.02em] text-[#131B2E]">Revenue &amp; Profit</h2>
-        <div className="inline-flex rounded-md border border-[#E1E8F2] bg-[#FBFCFE] p-1">
+      <header className="flex h-[60px] items-center justify-between border-b border-[#D8DEE8] px-5">
+        <h2 className="text-[18px] font-semibold tracking-[-0.02em] text-[#131B2E]">Revenue &amp; Profit</h2>
+        <div className="inline-flex rounded-[3px] border border-[#E1E8F2] bg-[#FBFCFE] p-0.5">
           {periods.map((period) => (
             <button
               key={period}
               type="button"
               onClick={() => setSelectedPeriod(period)}
-              className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition sm:px-4 ${selectedPeriod === period ? "bg-[#285DE7] text-white shadow-sm" : "text-[#55647B] hover:bg-[#F0F4FA]"}`}
+              className={`rounded-[3px] px-3 py-[7px] text-[10px] font-medium leading-none transition sm:px-3.5 ${selectedPeriod === period ? "bg-[#285DE7] text-white shadow-sm" : "text-[#55647B] hover:bg-[#F0F4FA]"}`}
             >
               {period}
             </button>
@@ -36,7 +36,7 @@ const RevenueAndProfit = () => {
         </div>
       </header>
 
-      <div className="overflow-hidden px-3 pb-4 pt-4 sm:px-5">
+      <div className="overflow-hidden px-3 pb-3 pt-4 sm:px-4">
         <div className="relative w-full">
           <svg className="h-auto w-full" viewBox="0 0 760 348" fill="none" role="img" aria-label="Revenue and profit by month">
             <g fill="#F8FAFD">
